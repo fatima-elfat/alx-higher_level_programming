@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 import random
-r = 0
 number = random.randint(-10000, 10000)
+r = number
 if number < 0:
-   r = -number
+    r *= -1
 r %= 10
 strr = "Last digit of {} is {}"
 if r > 5:
@@ -12,4 +12,4 @@ elif r == 0:
     strr += " and is 0"
 else:
     strr += " and is less than 6 and not 0"
-print(strr.format(number, r)) 
+print(strr.format(number, r))
