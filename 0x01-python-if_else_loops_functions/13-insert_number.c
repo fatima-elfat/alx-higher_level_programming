@@ -31,7 +31,8 @@ listint_t *insert_node(listint_t **head, int number)
 			*head = n1;
 			return (n1);
 		}
-		else if ((n1->n == n2->n) || !n2->next)
+		else if ((n1->n == n2->n) || !n2->next
+				|| ((n2->n < n1->n) && (n1->n < (n2->next)->n)))
 		{
 			n1->next = n2->next;
 			n2->next = n1;
