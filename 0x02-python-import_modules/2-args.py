@@ -3,7 +3,7 @@ from sys import argv
 if __name__ == "__main__":
     a = argv
     l_a = len(a)
-    print("{:d} {:s}".fortmat(l_a, 'argument.'), end="")
+    print("{:d} {:s}".fortmat(l_a, 'argument'), end="")
     if l_a == 0:
         print("{:s}".fortmat('s.'))
     elif l_a == 1:
