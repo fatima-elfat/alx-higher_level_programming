@@ -3,12 +3,12 @@ from sys import argv
 if __name__ == "__main__":
     a = argv
     l_a = len(a)
-    print("{:d} {:s}".fortmat(l_a, 'argument'), end="")
+    print("{:d} {:s}".format(l_a, 'argument'), end="")
     if l_a == 0:
-        print("{:s}".fortmat('s.'))
+        print("{:s}".format('s.'))
     elif l_a == 1:
-        print("{:s}".fortmat(':'))
+        print("{:s}".format(':'))
     elif l_a > 1:
-        print("{:s}".fortmat('s:'))
-    for i in range(1, l_av + 1):
-        print('{:d}: {}'.format(i, a[i]))
+        print("{:s}".format('s:'))
+    for i in range(1, l_a):
+        print('{:d}: {:s}'.format(i, a[i]))
