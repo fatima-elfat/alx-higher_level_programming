@@ -5,6 +5,8 @@ r = number
 if number < 0:
     r *= -1
 r %= 10
+if number < 0:
+    r *= -1
 strr = "Last digit of {} is {}"
 if r > 5:
     strr += " and is greater than 5"
