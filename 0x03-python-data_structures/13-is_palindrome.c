@@ -9,7 +9,7 @@ int is_palindrome(listint_t **head)
 {
 	unsigned int i = 0, len_l = 0;
 	int *l1;
-	listint_t l2 = *head;
+	listint_t *l2 = *head;
 
 	if (head == NULL)
 		return (0);
@@ -27,7 +27,7 @@ int is_palindrome(listint_t **head)
 		return (0);
 	while (l2)
 	{
-		l1[i++] = l2->next;
+		l1[i++] = l2->n;
 		l2 = l2->next; }
 	for (i = 0; i < (len_l / 2) + 1; i++)
 	{
