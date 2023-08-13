@@ -1,4 +1,24 @@
 #include "lists.h"
+/**
+ * is_palindrome_rec - checks if a sgl linked list is a palindrome recursive.
+ * @a: the beginning of list.
+ * @z: copy of list, goes to the last node.
+ * Return: 0 if it is not a palindrome, 1 if it is a palindrome.
+ */
+int is_palindrome_rec(listint_t **a, listint_t *z)
+{
+	int r = 0;
+
+	if (z == NULL)
+		return (1);
+	if (!is_palindrome_rec(a, z->next))
+		return (0);
+	/* using the poiter for this part*/
+	if ((*a)->n == z->n)
+		r = 1;
+	*a = (*a)->next;
+	return (r);
+}
 
 /**
  * is_palindrome - checks if a singly linked list is a palindrome.
@@ -7,34 +27,9 @@
  */
 int is_palindrome(listint_t **head)
 {
-	unsigned int i = 0, len_l = 0;
-	int *l1;
-	listint_t *l2 = *head;
-
 	if (head == NULL)
 		return (0);
 	if (*head == NULL)
 		return (1);
-	while (l2)
-	{
-		l2 = l2->next;
-		len_l++; }
-	if (len_l == 1)
-		return (1);
-	l2 = *head;
-	l1 = malloc(sizeof(int) * len_l);
-	if (!l1)
-		return (0);
-	while (l2)
-	{
-		l1[i++] = l2->n;
-		l2 = l2->next; }
-	for (i = 0; i < (len_l / 2) + 1; i++)
-	{
-		if (l1[i] != l1[len_l - i - 1])
-		{
-			free(l1);
-			return (0); }}
-	free(l1);
-	return (1);
+	return (is_palindrome_rec(*head, head));
 }
