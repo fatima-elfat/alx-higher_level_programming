@@ -12,11 +12,12 @@ void print_python_bytes(PyObject *p)
 		printf("  [ERROR] Invalid Bytes Object\n");
 	else
 	{
-		len = PyBytes_Size(p);
+		len = PyList_Size(p);
 		printf("  size: %ld\n", len);
 		printf("  trying string: %s\n", py_c->ob_sval);
 		s = py_c->ob_sval;
-		a = len + 1;
+		len++;
+		a = len;
 		if (a > 10)
 			a = 10;
 		printf("  first %ld bytes: ", a);
@@ -40,7 +41,7 @@ void print_python_list(PyObject *p)
 		/*it = PyList_GET_ITEM(p, i);*/
 		it = py_c->ob_item[i];
 		printf("Element %ld: %s\n", i, it->ob_type->tp_name);
-		if (PyBytes_Check(py_c))
+		if (PyBytes_Check(it))
 			print_python_bytes(it);
 	}
 }
