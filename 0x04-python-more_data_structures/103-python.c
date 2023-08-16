@@ -1,4 +1,6 @@
 #include "Python.h"
+#include "listobject.h"
+#include "object.h"
 #include <stdio.h>
 
 void print_python_bytes(PyObject *p)
