@@ -5,8 +5,8 @@ def weight_average(my_list=[]):
     a = 0
     b = 0
     for i, j in my_list:
-        a += y
-        b += y * x
+        a += j
+        b += j * i
     if a == 0:
         return 0
     return b/a
