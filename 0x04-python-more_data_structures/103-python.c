@@ -16,11 +16,11 @@ void print_python_bytes(PyObject *p)
 		printf("  size: %ld\n", len);
 		printf("  trying string: %s\n", py_c->ob_sval);
 		s = py_c->ob_sval;
-		len++;
-		a = len;
-		if (a > 10)
-			a = 10;
-		printf("  first %ld bytes: ", a);
+		if (len >= 10)
+			len = 10;
+		else
+			len+=1;
+		printf("  first %ld bytes: ", len);
 		for (i = 0; i < len - 1; ++i)
 			printf("%02x ", (unsigned char) s[i]);
 		printf("%02x\n", (unsigned char) s[i]);
