@@ -27,10 +27,6 @@ void print_python_bytes(PyObject *p)
 			printf(" %.2x", (unsigned char) *s++);
 		printf("\n");
 	}
-	else
-	{
-		printf("  [ERROR] Invalid Bytes Object\n");
-	}
 }
 void print_python_list(PyObject *p)
 {
@@ -42,10 +38,10 @@ void print_python_list(PyObject *p)
 	printf("[*] Python list info\n");
 	printf("[*] Size of the Python List = %lld\n", (long long) len);
 	printf("[*] Allocated = %lld\n", (long long) py_c->allocated);
-	for (i = 0; i < (long long) len; ++i)
+	for (i = 0; i < len; ++i)
 	{
 		it = PyList_GET_ITEM(p, i);
-		printf("Element %lld: %s\n", i, it->ob_type->tp_name);
+		printf("Element %lld: %s\n",(long long) i, it->ob_type->tp_name);
 		if (PyBytes_Check(it))
 			print_python_bytes(it);
 	}
