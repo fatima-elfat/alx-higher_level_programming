@@ -28,8 +28,7 @@ void print_python_bytes(PyObject *p)
 }
 void print_python_list(PyObject *p)
 {
-	int i;
-	long long len;
+	long long len, i;
 	PyListObject *py_c = (PyListObject *) p;
 	PyObject *it;
 
