@@ -40,7 +40,7 @@ void print_python_list(PyObject *p)
 		/*it = PyList_GET_ITEM(p, i);*/
 		it = py_c->ob_item[i];
 		printf("Element %ld: %s\n", i, it->ob_type->tp_name);
-		if (strcmp(it->ob_type->tp_name, "bytes") == 0)
+		if (strcmp(it->ob_type->tp_name, "bytes"))
 			print_python_bytes(it);
 	}
 }
