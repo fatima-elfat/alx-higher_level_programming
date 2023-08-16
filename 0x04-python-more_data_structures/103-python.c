@@ -37,10 +37,10 @@ void print_python_list(PyObject *p)
 	printf("[*] Allocated = %ld\n", py_c->allocated);
 	for (i = 0; i < len; ++i)
 	{
-		it = PyList_GET_ITEM(p, i);
-		/*it = py_c->ob_item[i];*/
+		/*it = PyList_GET_ITEM(p, i);*/
+		it = py_c->ob_item[i];
 		printf("Element %ld: %s\n", i, it->ob_type->tp_name);
-		if (PyBytes_Check(it))
+		if (strcmp(it->ob_type->tp_name, "bytes") == 0)
 			print_python_bytes(it);
 	}
 }
