@@ -18,7 +18,8 @@ void print_python_bytes(PyObject *p)
 		printf("  size: %d\n", len);
 		printf("  trying string: %s\n", py_c->ob_sval);
 		s = py_c->ob_sval;
-		if ((len + 1) >= 10)
+		a = len + 1;
+		if (a >= 10)
 			a = 10;
 		printf("  first %d bytes: ", a);
 		while (a--)
