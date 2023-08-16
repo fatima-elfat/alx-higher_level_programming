@@ -11,4 +11,13 @@ def roman_to_int(roman_string):
     if roman_string == "":
         return 0
     r = 0
-
+    t = zip(roman_string, roman_string[1:])
+    for i, j in t:
+        if i not in roman_dic.keys():
+            return 0
+        elif roman_dic[i] < roman_dic[j]:
+            r -= roman_dic[i]
+        else:
+            r += roman_dic[i]
+    r += roman_dic[roman_string[-1]]
+    return r
