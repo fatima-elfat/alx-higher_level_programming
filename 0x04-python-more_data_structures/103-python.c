@@ -3,7 +3,7 @@
 
 void print_python_bytes(PyObject *p)
 {
-	Py_ssize_t len = 0, a, i;
+	Py_ssize_t len = 0, i;
 	char *s;
 	PyBytesObject *py_c = (PyBytesObject *) p;
 
