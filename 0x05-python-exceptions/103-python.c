@@ -1,7 +1,5 @@
 #include <stdio.h>
 #include "Python.h"
-#include "floatobject.h"
-#include <sys/time.h>
 
 
 void print_python_bytes(PyObject *p)
@@ -45,9 +43,6 @@ void print_python_float(PyObject *p)
 		printf("  [ERROR] Invalid Float Object\n");
 		return;
 	}
-	i = py_c->ob_fval;
-	s = PyOS_double_to_string(i, 'r', 0,Py_DTSF_ADD_DOT_0, NULL);
-	printf("  value: %s\n", s);
 }
 void print_python_list(PyObject *p)
 {
