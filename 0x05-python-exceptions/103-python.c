@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "Python.h"
+#include "floatobject.h"
 #include <sys/time.h>
 
 
