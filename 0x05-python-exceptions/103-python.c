@@ -6,7 +6,7 @@
 
 void print_python_bytes(PyObject *p)
 {
-	Py_ssize_t len = 0, i, len2;
+	Py_ssize_t len = 0, len2;
 	char *s;
 	PyBytesObject *py_c = (PyBytesObject *) p;
 
@@ -26,9 +26,9 @@ void print_python_bytes(PyObject *p)
 		if (len2 >= 10)
 			len2 = 10;
 		printf("  first %ld bytes: ", len2);
-		for (i = 0; i < len2 - 1; ++i)
-			printf("%02x ", (unsigned char) s[i]);
-		printf("%02x\n", (unsigned char) s[i]);
+		while (len2--)
+			printf("%02x ", (unsigned char) *s++);
+		printf("\n");
 	}
 	fflush(stdout);
 }

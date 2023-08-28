@@ -1,7 +1,8 @@
 #!/usr/bin/python3 -u
-
+import pdb
 import ctypes
 
+pdb.set_trace()
 lib = ctypes.CDLL('./libPython.so')
 lib.print_python_list.argtypes = [ctypes.py_object]
 lib.print_python_bytes.argtypes = [ctypes.py_object]
