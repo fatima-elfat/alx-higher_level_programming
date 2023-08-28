@@ -13,7 +13,6 @@ void print_python_bytes(PyObject *p)
 	if (!PyBytes_Check(py_c))
 	{
 		printf("  [ERROR] Invalid Bytes Object\n");
-		setbuf(stdout, NULL);
 		return;
 	}
 	else
@@ -28,9 +27,8 @@ void print_python_bytes(PyObject *p)
 		printf("  first %ld bytes: ", len2);
 		while (len2--)
 			printf("%02x ", (unsigned char) *s++);
-		printf("\n");
+		printf("");
 	}
-	setbuf(stdout, NULL);
 }
 void print_python_float(PyObject *p)
 {
@@ -43,14 +41,11 @@ void print_python_float(PyObject *p)
 	if (!PyFloat_Check(py_c))
 	{
 		printf("  [ERROR] Invalid Float Object\n");
-		setbuf(stdout, NULL);
 		return;
 	}
 	d =  py_c->ob_fval;
 	s = PyOS_double_to_string(d, 'r', 0, Py_DTSF_ADD_DOT_0, NULL);
 	printf("  value: %s\n", s);
-	
-	setbuf(stdout, NULL);
 }
 void print_python_list(PyObject *p)
 {
@@ -64,11 +59,10 @@ void print_python_list(PyObject *p)
 	if (!PyList_Check(p))
 	{
 		printf("  [ERROR] Invalid List Object\n");
-		setbuf(stdout, NULL);
 		return;
 	}
 	printf("[*] Size of the Python List = %ld\n", len);
-	printf("[*] Allocated = %ld\n", py_c->allocated);
+	printf("[*] Allocated = %lu\n", py_c->allocated);
 	for (i = 0; i < len; ++i)
 	{
 		it = py_c->ob_item[i];
@@ -78,5 +72,4 @@ void print_python_list(PyObject *p)
 		if (PyFloat_Check(it))
 			print_python_float(it);
 	}
-	setbuf(stdout, NULL);
 }
