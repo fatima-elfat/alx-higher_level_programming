@@ -28,8 +28,6 @@ void print_python_bytes(PyObject *p)
 		/*while (len2--)
 		*	printf("%02x ", (unsigned char) *s++);
 		*/
-		for (i = 0; i < len2; ++i)
-			printf("%02x ", (unsigned char) s[i]);
 		printf("\n");
 	}
 }
