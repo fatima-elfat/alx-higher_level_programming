@@ -20,7 +20,7 @@ void print_python_bytes(PyObject *p)
 	{
 		/*len = PyBytes_Size(p);*/
 		printf("  size: %ld\n", len);
-		s = (assert(PyBytes_Check(p)), (py_c->ob_sval));
+		s = py_c->ob_sval;
 		printf("  trying string: %s\n", s);
 		len2 = len + 1;
 		if (len2 >= 10)
