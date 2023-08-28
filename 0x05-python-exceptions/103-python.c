@@ -30,7 +30,6 @@ void print_python_bytes(PyObject *p)
 			printf("%02x ", (unsigned char) s[i]);
 		printf("%02x\n", (unsigned char) s[i]);
 	}
-	free(s);
 	fflush(stdout);
 }
 void print_python_float(PyObject *p)
@@ -48,7 +47,6 @@ void print_python_float(PyObject *p)
 	i = py_c->ob_fval;
 	s = PyOS_double_to_string(i, 'r', 0,Py_DTSF_ADD_DOT_0, NULL);
 	printf("  value: %s\n", s);
-	free(s);
 	fflush(stdout);
 }
 void print_python_list(PyObject *p)
