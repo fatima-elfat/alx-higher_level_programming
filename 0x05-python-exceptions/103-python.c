@@ -4,7 +4,7 @@
 
 void print_python_bytes(PyObject *p)
 {
-	Py_ssize_t len = ((PyVarObject *)(p))->ob_size, len2;
+	Py_ssize_t len = ((PyVarObject *)(p))->ob_size, len2, i;
 	char *s;
 	PyBytesObject *py_c = (PyBytesObject *) p;
 
@@ -25,9 +25,12 @@ void print_python_bytes(PyObject *p)
 		if (len2 >= 10)
 			len2 = 10;
 		printf("  first %ld bytes: ", len2);
-		while (len2--)
-			printf("%02x ", (unsigned char) *s++);
-		printf("\t");
+		/*while (len2--)
+		*	printf("%02x ", (unsigned char) *s++);
+		*/
+		for (i = 0; i < len2; ++i)
+			printf("%02x ", (unsigned char) s[i]);
+		printf("\n");
 	}
 }
 void print_python_float(PyObject *p)
