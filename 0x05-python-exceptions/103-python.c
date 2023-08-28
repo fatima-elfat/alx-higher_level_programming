@@ -27,7 +27,7 @@ void print_python_bytes(PyObject *p)
 		printf("  first %ld bytes: ", len2);
 		while (len2--)
 			printf("%02x ", (unsigned char) *s++);
-		printf("");
+		printf("\t");
 	}
 }
 void print_python_float(PyObject *p)
