@@ -66,7 +66,8 @@ void print_python_list(PyObject *p)
 		printf("Element %ld: %s\n", i, it->ob_type->tp_name);
 		if (PyBytes_Check(it))
 			print_python_bytes(it);
-		if (PyFloat_Check(it))
+		/*if (PyFloat_Check(it))
 			print_python_float(it);
+		*/
 	}
 }
