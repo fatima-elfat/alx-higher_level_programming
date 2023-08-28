@@ -10,6 +10,7 @@ void print_python_bytes(PyObject *p)
 	char *s;
 	PyBytesObject *py_c = (PyBytesObject *) p;
 
+	setbuf(stdout, NULL);
 	printf("[.] bytes object info\n");
 	if (!PyBytes_Check(py_c))
 	{
@@ -30,7 +31,6 @@ void print_python_bytes(PyObject *p)
 			printf("%02x ", (unsigned char) *s++);
 		printf("\n");
 	}
-	fflush(stdout);
 }
 void print_python_float(PyObject *p)
 {
@@ -38,6 +38,7 @@ void print_python_float(PyObject *p)
 	char *s;
 	float i;
 
+	setbuf(stdout, NULL);
 	printf("[.] float object info\n");
 	if (!PyFloat_Check(py_c))
 	{
@@ -47,7 +48,6 @@ void print_python_float(PyObject *p)
 	i = py_c->ob_fval;
 	s = PyOS_double_to_string(i, 'r', 0,Py_DTSF_ADD_DOT_0, NULL);
 	printf("  value: %s\n", s);
-	fflush(stdout);
 }
 void print_python_list(PyObject *p)
 {
@@ -55,7 +55,8 @@ void print_python_list(PyObject *p)
 	PyListObject *py_c = (PyListObject *) p;
 	PyObject *it;
 
-	len = PyList_GET_SIZE(p);
+	len = PyList_GET_SIZE(p);	
+	setbuf(stdout, NULL);	
 	printf("[*] Python list info\n");
 	if (!PyList_Check(p))
 	{
@@ -73,5 +74,4 @@ void print_python_list(PyObject *p)
 		else if (PyFloat_Check(it))
 			print_python_float(it);
 	}
-	fflush(stdout);
 }
