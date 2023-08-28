@@ -63,7 +63,7 @@ void print_python_list(PyObject *p)
 	}
 	printf("[*] Size of the Python List = %ld\n", len);
 	printf("[*] Allocated = %lu\n", py_c->allocated);
-	for (i = 0; i < len; ++i)
+	for (i = 0; i < len; i++)
 	{
 		it = py_c->ob_item[i];
 		printf("Element %ld: %s\n", i, it->ob_type->tp_name);
