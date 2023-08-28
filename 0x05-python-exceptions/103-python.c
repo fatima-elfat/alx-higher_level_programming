@@ -4,7 +4,7 @@
 
 void print_python_bytes(PyObject *p)
 {
-	Py_ssize_t len = ((PyVarObject *)(p))->ob_size, len2;
+	Py_ssize_t len = 0, len2;
 	char *s;
 	PyBytesObject *py_c = (PyBytesObject *) p;
 
@@ -15,7 +15,7 @@ void print_python_bytes(PyObject *p)
 		printf("  [ERROR] Invalid Bytes Object\n");
 		return;
 	}
-	/*len = PyBytes_Size(p);*/
+	len = PyBytes_Size(p);
 	printf("  size: %ld\n", len);
 	s = py_c->ob_sval;
 	printf("  trying string: %s\n", s);
@@ -64,9 +64,8 @@ void print_python_list(PyObject *p)
 	{
 		it = py_c->ob_item[i];
 		printf("Element %ld: %s\n", i, it->ob_type->tp_name);
-		/*if (PyBytes_Check(it))
+		if (PyBytes_Check(it))
 			print_python_bytes(it);
-		*/
 		if (PyFloat_Check(it))
 			print_python_float(it);
 	}
