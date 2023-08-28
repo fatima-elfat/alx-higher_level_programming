@@ -10,19 +10,19 @@ void print_python_bytes(PyObject *p)
 
 	setbuf(stdout, NULL);
 	printf("[.] bytes object info\n");
-	/*if (!PyBytes_Check(py_c))
+	if (!PyBytes_Check(py_c))
 	{
 		printf("  [ERROR] Invalid Bytes Object\n");
 		return;
 	}
-	len = PyBytes_Size(p);*/
+	/*len = PyBytes_Size(p);*/
 	printf("  size: %zd\n", len);
 	s = py_c->ob_sval;
 	printf("  trying string: %s\n", s);
 	len2 = len + 1;
 	if (len2 >= 10)
 		len2 = 10;
-	printf("  first %zd bytes: ", len2);
+	/*printf("  first %zd bytes: ", len2);*/
 	while (len2--)
 		printf("%02x ", (unsigned char) *s++);
 	printf("\n");
