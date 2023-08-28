@@ -33,8 +33,6 @@ void print_python_bytes(PyObject *p)
 void print_python_float(PyObject *p)
 {
 	PyFloatObject *py_c = (PyFloatObject *) p;
-	char *s;
-	float i;
 
 	setbuf(stdout, NULL);
 	printf("[.] float object info\n");
