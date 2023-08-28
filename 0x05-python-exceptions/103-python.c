@@ -35,7 +35,6 @@ void print_python_bytes(PyObject *p)
 void print_python_float(PyObject *p)
 {
 	PyFloatObject *py_c = (PyFloatObject *) p;
-	Py_ssize_t r = 0;
 
 	setbuf(stdout, NULL);
 	printf("[.] float object info\n");
@@ -45,9 +44,8 @@ void print_python_float(PyObject *p)
 		setbuf(stdout, NULL);
 		return;
 	}
-	r = py_c->ob_fval;
 	printf("  value: %s\n",
-			PyOS_double_to_string(r, 'r', 0,
+			PyOS_double_to_string(py_c->ob_fval, 'r', 0,
 			Py_DTSF_ADD_DOT_0, NULL));
 	setbuf(stdout, NULL);
 }
