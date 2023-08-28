@@ -34,7 +34,7 @@ void print_python_bytes(PyObject *p)
 }
 void print_python_float(PyObject *p)
 {
-	float f;
+	char *s;
 	PyFloatObject *py_c = (PyFloatObject *) p;
 
 	setbuf(stdout, NULL);
@@ -45,15 +45,10 @@ void print_python_float(PyObject *p)
 		setbuf(stdout, NULL);
 		return;
 	}
-	/*printf("  value: %s\n",
-	*		PyOS_double_to_string(py_c->ob_fval, 'r', 0,
-	*		Py_DTSF_ADD_DOT_0, NULL));
-	*/
-	f = py_c->ob_fval;
-	if ((int) f == f)
-		printf("  value: %0.1f\n", py_c->ob_fval);
-	else
-		printf("  value: %0.16g\n", py_c->ob_fval);
+	s = PyOS_double_to_string(py_c->ob_fval, 'r', 0,
+			Py_DTSF_ADD_DOT_0, NULL);
+	printf("  value: %s\n", s);
+	
 	setbuf(stdout, NULL);
 }
 void print_python_list(PyObject *p)
