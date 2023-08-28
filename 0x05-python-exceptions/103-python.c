@@ -4,7 +4,7 @@
 
 void print_python_bytes(PyObject *p)
 {
-	Py_ssize_t len = 0, len2;
+	Py_ssize_t len = ((PyVarObject *)(p))->ob_size, len2;
 	char *s;
 	PyBytesObject *py_c = (PyBytesObject *) p;
 
@@ -18,7 +18,7 @@ void print_python_bytes(PyObject *p)
 	}
 	else
 	{
-		len = PyBytes_Size(p);
+		/*len = PyBytes_Size(p);*/
 		printf("  size: %ld\n", len);
 		printf("  trying string: %s\n", py_c->ob_sval);
 		s = py_c->ob_sval;
@@ -51,12 +51,12 @@ void print_python_float(PyObject *p)
 }
 void print_python_list(PyObject *p)
 {
-	Py_ssize_t  len, i;
+	Py_ssize_t  len = ((PyVarObject *)(p))->ob_size, i;
 	PyListObject *py_c = (PyListObject *) p;
 	PyObject *it;
 
-	len = PyList_GET_SIZE(p);	
-	setbuf(stdout, NULL);	
+	/*len = PyList_GET_SIZE(p);*/
+	setbuf(stdout, NULL);
 	printf("[*] Python list info\n");
 	if (!PyList_Check(p))
 	{
@@ -72,7 +72,7 @@ void print_python_list(PyObject *p)
 		printf("Element %ld: %s\n", i, it->ob_type->tp_name);
 		if (PyBytes_Check(it))
 			print_python_bytes(it);
-		else if (PyFloat_Check(it))
+		if (PyFloat_Check(it))
 			print_python_float(it);
 	}
 	setbuf(stdout, NULL);
