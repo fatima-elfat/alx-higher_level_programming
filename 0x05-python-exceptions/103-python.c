@@ -41,6 +41,9 @@ void print_python_float(PyObject *p)
 		printf("  [ERROR] Invalid Float Object\n");
 		return;
 	}
+	printf("  value: %s\n",
+			PyOS_double_to_string(py_c->ob_fval, 'r', 0,
+			Py_DTSF_ADD_DOT_0, NULL));
 }
 void print_python_list(PyObject *p)
 {
