@@ -47,11 +47,11 @@ class Square:
             return string
         for x in range(self.__position[1]):
             r += '\n'
-        r += '#' * self.__size
         r += ' ' * self.__position[0]
+        r += '#' * self.__size
         for x in range(1, self.__size):
-            r += '\n' + '#' * self.__size\
-                    + ' ' * self.__position[0]
+            r += '\n' + ' ' * self.__position[0]\
+                    + '#' * self.__size
         return r
 
     @property
