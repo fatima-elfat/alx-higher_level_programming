@@ -95,7 +95,8 @@ class Square:
 
     def my_print(self):
         """
-        Prints in stdout the square with the character #.
+        Prints in stdout the square with the character #,
+        position should be use by using space.
         """
         if self.__size == 0:
             print()
