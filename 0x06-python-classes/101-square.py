@@ -44,7 +44,7 @@ class Square:
         """
         r = ""
         if self.__size == 0:
-            return string
+            return r
         for x in range(self.__position[1]):
             r += '\n'
         r += ' ' * self.__position[0]
