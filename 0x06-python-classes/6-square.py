@@ -13,7 +13,7 @@ class Square:
     __size = None
     __position = None
 
-    def __init__(self, sizeval=0):
+    def __init__(self, sizeval=0, positionval=(0,0)):
         """
         Initializes the square.
 
