@@ -10,6 +10,7 @@ class Square:
        __size (int): size of the side.
     """
     __size = None
+
     def __init__(self, sizeval=0):
         """
         Initializes the square.
