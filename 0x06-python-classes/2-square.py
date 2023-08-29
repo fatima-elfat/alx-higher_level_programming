@@ -21,8 +21,8 @@ class Square:
             ValueError: If `sizeval` is less than `0`.
             TypeError: If `sizeval` type is not `int`.
         """
-        if sizeval < 0:
-            raise ValueError("size must be >= 0")
         if type(sizeval) is not int:
             raise TypeError("size must be an integer")
+        if sizeval < 0:
+            raise ValueError('size must be >= 0')
         self.__size = sizeval
