@@ -21,11 +21,11 @@ void print_python_bytes(PyObject *p)
 	len2 = len + 1;
 	if (len2 >= 10)
 		len2 = 10;
-	printf("  first %ld bytes: ", len2);
+	printf("  first %ld bytes:", len2);
 	s = py_c->ob_sval;
 	while (i< len2)
 	{
-		printf("%02x ", (unsigned char) s[i]);
+		printf(" %02x", (unsigned char) s[i]);
 		i++;
 	}
 	printf("\n");
