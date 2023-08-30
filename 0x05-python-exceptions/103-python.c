@@ -18,7 +18,7 @@ void print_python_bytes(PyObject *p)
 	len = PyBytes_Size(p);
 	printf("  size: %ld\n", len);
 	s = py_c->ob_sval;
-	printf("  trying string: %s\n", s);
+	printf("  trying string: %s\n", py_c->ob_sval);
 	len2 = len + 1;
 	if (len2 >= 10)
 		len2 = 10;
@@ -26,7 +26,7 @@ void print_python_bytes(PyObject *p)
 	while (i < 10 && i< len2 + 1)
 	{
 		printf("%02x ", (unsigned char) *s++);
-i++;
+		i++;
 	}
 	printf("\n");
 }
