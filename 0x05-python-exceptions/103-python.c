@@ -23,7 +23,7 @@ void print_python_bytes(PyObject *p)
 	if (len2 >= 10)
 		len2 = 10;
 	printf("  first %ld bytes: ", len2);
-	while (i < 10 && i< len2 + 1)
+	while (i < 10 && i< len2)
 	{
 		printf("%02x ", (unsigned char) s[i]);
 		i++;
