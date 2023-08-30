@@ -25,7 +25,7 @@ void print_python_bytes(PyObject *p)
 	printf("  first %ld bytes: ", len2);
 	while (i < 10 && i< len2 + 1)
 	{
-		printf("%02x ", (unsigned char) *s++);
+		printf("%.2x ", (unsigned char) *s++);
 		i++;
 	}
 	printf("\n");
