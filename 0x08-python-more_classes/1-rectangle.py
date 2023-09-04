@@ -25,7 +25,7 @@ class Rectangle:
     def width(self):
         """
         Getter.
-        
+
         Return: the width.
         """
         return self.__width
@@ -34,7 +34,7 @@ class Rectangle:
     def width(self, value):
         """
         Setter.
-        
+
         Args:
             value: value of the width.
         Raises:

@@ -35,12 +35,11 @@ class Rectangle:
         print("Bye rectangle...")
         type(self).number_of_instances -= 1
 
-
     @property
     def width(self):
         """
         Getter.
-        
+
         Return: the width.
         """
         return self.__width
@@ -49,7 +48,7 @@ class Rectangle:
     def width(self, value):
         """
         Setter.
-        
+
         Args:
             value: value of the width.
         Raises:
