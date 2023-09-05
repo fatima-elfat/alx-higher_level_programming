@@ -4,8 +4,8 @@
 void print_python_string(PyObject *p)
 {
 	PyASCIIObject *p_clone = (PyASCIIObject *) p;
-	wchar_t *buff;
 	Py_ssize_t size;
+	wchar_t *s;
 
 	fflush(stdout);
 	printf("[.] string object info\n");
@@ -14,18 +14,20 @@ void print_python_string(PyObject *p)
 		printf("  [ERROR] Invalid String Object\n");
 		return;
 	}
-	if (p_clone->state.ascii == 1)
+	size = p_clone->length;
+	if (PyUnicode_IS_COMPACT_ASCII(p))
 	{
 		printf("  type: compact ascii\n");
-	}
-	else if (p_clone->state.compact == 1)
-	{
-		printf("  type: compact unicode object\n");
+		printf("  length: %ld\n", (long) size);
+		printf("  value: %s\n", (char *) (p_clone + 1));
 	}
 	else
-		printf("  [ERROR] Invalid String Object\n");
-	printf("  length: %ld\n", (long) p_clone->length);
-	buff = PyUnicode_AsWideCharString(p, &size);
-	printf("  value: %ls\n", buff);
-	PyMem_Free(buff);
+	{
+		printf("  type: compact unicode object\n");
+		printf("  length: %ld\n", (long) size);
+		s = PyUnicode_AsWideCharString((PyObject *) p, &size);
+		printf("  value: ");
+		wprintf(L"%ls\n", s);
+		PyMem_Free(s);
+	}
 }
