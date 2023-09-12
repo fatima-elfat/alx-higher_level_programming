@@ -36,9 +36,15 @@ if __name__ == "__main__":
     try:
         for line in sys.stdin:
             col = list(map(str, line.strip().split(" ")))
-            size += int(col[-1])
-            if col[-2] in valid_codes:
-                valid_codes[col[-2]] += 1
+            try:
+                size += int(col[-1])
+            except (IndexError, ValueError):
+                pass
+            try:
+                if col[-2] in valid_codes:
+                    valid_codes[col[-2]] += 1
+            except IndexError:
+                pass
             lines += 1
             if lines % 10 == 0:
                 print_stats(size, valid_codes)
