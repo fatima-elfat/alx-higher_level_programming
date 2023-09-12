@@ -1,6 +1,10 @@
 #!/usr/bin/python3
 """
 the module of 14. Log parsing.
+Input format: <IP Address> - [<date>]
+"GET /projects/260 HTTP/1.1" <status code> <file size>
+Each 10 lines and after a keyboard interruption
+(CTRL + C), prints those statistics since the beginning
 """
 import sys
 
