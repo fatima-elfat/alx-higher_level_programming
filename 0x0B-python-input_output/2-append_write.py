@@ -4,7 +4,6 @@ the module of 2. Append to a file.
 """
 
 
-
 def append_write(filename="", text=""):
     """
     appends a string at the end of a text file.
