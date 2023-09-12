@@ -30,8 +30,9 @@ class Student:
         """
         if (type(attrs) == list and
                 all(isinstance(a, str) for a in attrs)):
-            for key in attrs:
-                if hasattr(self, key):
-                    key = getattr(self, key)
-            return key
+            dic = {}
+            for att in attrs:
+                if att in self.__dict__:
+                    dic[att] = self.__dict__.get(att)
+            return dic
         return self.__dict__
