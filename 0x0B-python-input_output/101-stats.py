@@ -2,7 +2,7 @@
 """
 the module of 14. Log parsing.
 """
-
+import sys
 
 
 def print_stats(size, valid_codes):
@@ -19,14 +19,16 @@ def print_stats(size, valid_codes):
             print("{:s}: {:d}".format(k, v))
 
 
-if __name__ == "__main__": 
-    import sys
-
+if __name__ == "__main__":
 
     size = 0
     lines = 0
-    valid_codes = {"200": 0, "301": 0, "400": 0, "401": 0,
-                  "403": 0, "404": 0, "405": 0, "500": 0}
+    valid_codes = {
+            "200": 0, "301": 0,
+            "400": 0, "401": 0,
+            "403": 0, "404": 0,
+            "405": 0, "500": 0
+            }
     try:
         for line in sys.stdin:
             col = list(map(str, line.strip().split(" ")))
@@ -40,4 +42,3 @@ if __name__ == "__main__":
         print_stats(size, valid_codes)
         raise
     print_stats(size, valid_codes)
-
