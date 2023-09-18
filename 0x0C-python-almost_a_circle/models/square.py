@@ -15,7 +15,7 @@ class Square(Rectangle):
         size
     Inherited Attributes:
         id
-        __weight 
+        __weight
         __height
         __x
         __y

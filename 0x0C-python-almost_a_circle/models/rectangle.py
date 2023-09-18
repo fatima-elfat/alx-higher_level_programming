@@ -140,7 +140,7 @@ class Rectangle(Base):
         with the character # -.
         """
         for i in range(self.__height):
-            print("\n" * self.__y +
+            print("\n" * self.__y +\
                  "\n".join(" " * self.__x + "#" * self.__width))
 
     def __str__(self):
@@ -205,5 +205,3 @@ class Rectangle(Base):
         dct["x"] = self.x
         dct["y"] = self.y
         return dct
-
-    

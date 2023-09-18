@@ -26,7 +26,7 @@ class Base():
         else:
             Base.__nb_objects += 1
             self.id = Base.__nb_objects
-    
+
     @staticmethod
     def to_json_string(list_dictionaries):
         """
@@ -46,7 +46,7 @@ class Base():
         Arguments:
             cls : self Class.
             list_objs : a list of instances who inherits of Base.
-        
+
         """
         o = []
         if list_objs is not None:
@@ -128,7 +128,7 @@ class Base():
     def load_from_file_csv(cls):
         """
         Reads from csv and deserializes in CSV.
-    
+
         Arguments:
             cls : self Class.
         Return: a list of instances.
