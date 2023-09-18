@@ -142,8 +142,7 @@ class Base():
                     fields = ["id", "size", "x", "y"]
                 reader = csv.DictReader(f, fieldnames=fields)
                 for a in reader:
-                    reader = [dict([key, int(val)] for key, val in a.items())]
-                for b in reader:
-                    return [cls.create(**b)]
+                    l_dct = [dict([key, int(val)] for key, val in a.items())]
+                return [cls.create(**b) for b in l_dct]
         except IOError:
             return []
