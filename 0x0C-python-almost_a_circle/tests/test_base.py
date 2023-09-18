@@ -23,7 +23,7 @@ class TestPep8(unittest.TestCase):
         a = 0
         b = pep8.StyleGuide(quiet=False)
         files = ["models/base.py", "tests/test_models/test_base.py"]
-        a += b.check_files(files).total_a
+        a += b.check_files(files).total_errors
         self.assertEqual(a, 0, 'Try and fix Pep8')
 
 class TestBase(unittest.TestCase):
