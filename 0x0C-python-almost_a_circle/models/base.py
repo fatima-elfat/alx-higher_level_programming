@@ -124,26 +124,4 @@ class Base():
                 for obj in list_objs:
                     writer.writerow(obj.to_dictionary())
 
-    @classmethod
-    def load_from_file_csv(cls):
-        """
-        Reads from csv and deserializes in CSV.
-
-        Arguments:
-            cls : self Class.
-        Return: a list of instances.
-        """
-        filename = cls.__name__ + ".csv"
-        try:
-            with open(filename, "r", newline="") as f:
-                if cls.__name__ == "Rectangle":
-                    fields = ["id", "width", "height", "x", "y"]
-                else:
-                    fields = ["id", "size", "x", "y"]
-                reader = csv.DictReader(f, fieldnames=fields)
-                l_dct = [dict([key, int(val)] for key, val in a.items())
-                         for a in reader]
-                for b in l_dct:
-                    return [cls.create(**b)]
-        except IOError:
-            return []
+    
