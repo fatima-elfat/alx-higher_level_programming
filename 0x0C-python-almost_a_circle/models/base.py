@@ -103,7 +103,26 @@ class Base():
         except IOError:
             return []
 
-    
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """
+        Serializes in CSV.
+        Arguments:
+            cls : self Class.
+            list_objs : alist of Base instances.
+        """
+        filename = cls.__name__ + ".csv"
+        with open(filename, "w", newline="") as f:
+            if list_objs is None or list_objs == []:
+                f.write("[]")
+            else:
+                if cls.__name__ == "Rectangle":
+                    fields = ["id", "width", "height", "x", "y"]
+                else:
+                    fields = ["id", "size", "x", "y"]
+                writer = csv.DictWriter(f, fieldnames=fields)
+                for obj in list_objs:
+                    writer.writerow(obj.to_dictionary())
 
     @classmethod
     def load_from_file_csv(cls):
