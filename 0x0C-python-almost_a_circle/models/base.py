@@ -6,7 +6,7 @@ the module of class Base.
 
 import json
 import csv
-
+import turtle
 
 class Base():
     """
@@ -147,4 +147,42 @@ class Base():
         except IOError:
             return []
 
-    
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        """
+        Opens a window and draws all the Rectangles and Squares.
+        Arguments
+            list_rectangles : the list of Rectangle .
+            list_squares : the list of Square.
+        this task is to be reviewed by peers.
+        """
+        drawing = turtle.Turtle()
+        drawing.screen.bgcolor("#000000")
+        drawing.pensize(3)
+        drawing.shape("turtle")
+
+        drawing.color("#ffffff")
+        for rect in list_rectangles:
+            drawing.showturtle()
+            drawing.up()
+            drawing.goto(rect.x, rect.y)
+            drawing.down()
+            for i in range(2):
+                drawing.forward(rect.width)
+                drawing.left(90)
+                drawing.forward(rect.height)
+                drawing.left(90)
+            drawing.hideturtle()
+        drawing.color("#aaaaaa")
+        for sq in list_squares:
+            drawing.showturtle()
+            drawing.up()
+            drawing.goto(sq.x, sq.y)
+            drawing.down()
+            for i in range(2):
+                drawing.forward(sq.width)
+                drawing.left(90)
+                drawing.forward(sq.height)
+                drawing.left(90)
+            drawing.hideturtle()
+        turtle.exitonclick()
