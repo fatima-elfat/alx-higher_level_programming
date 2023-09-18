@@ -141,7 +141,7 @@ class Rectangle(Base):
         """
         for i in range(self.__height):
             print("\n" * self.__y +
-                        "\n".join(" " * self.__x + "#" * self.__width))
+                                "\n".join(" " * self.__x + "#" * self.__width))
 
     def __str__(self):
         """
