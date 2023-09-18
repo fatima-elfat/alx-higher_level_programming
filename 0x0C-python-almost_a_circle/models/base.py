@@ -144,5 +144,5 @@ class Base():
                 for a in reader:
                     l_dct = [dict([key, int(val)] for key, val in a.items())]
                 return [cls.create(**b) for b in l_dct]
-        except IOError:
+        except (TypeError, IOError):
             return []
