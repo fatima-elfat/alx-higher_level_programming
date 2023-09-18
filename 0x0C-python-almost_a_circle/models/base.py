@@ -146,3 +146,5 @@ class Base():
                 return [cls.create(**b) for b in l_dct]
         except IOError:
             return []
+
+    
