@@ -135,14 +135,14 @@ class Base():
         """
         filename = cls.__name__ + ".csv"
         try:
-            with open(filename, "r", newline="") as csvfile:
+            with open(filename, "r", newline="") as f:
                 if cls.__name__ == "Rectangle":
-                    fieldnames = ["id", "width", "height", "x", "y"]
+                    fields = ["id", "width", "height", "x", "y"]
                 else:
-                    fieldnames = ["id", "size", "x", "y"]
-                reader = csv.DictReader(csvfile, fieldnames=fieldnames)
-                for a in reader:
-                    l_dct = [dict([key, int(val)] for key, val in a.items())]
+                    fields = ["id", "size", "x", "y"]
+                reader = csv.DictReader(f, fieldnames=fields)
+                l_dct = [dict([key, int(val)] for key, val in a.items())
+                         for a in reader]
                 for b in l_dct:
                     return [cls.create(**b)]
         except IOError:
