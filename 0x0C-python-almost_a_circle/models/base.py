@@ -48,13 +48,14 @@ class Base():
             list_objs : a list of instances who inherits of Base.
 
         """
-        o = []
-        if list_objs is not None:
-            for o in list_objs:
-                o.append(cls.to_dictionary(o))
         filename = cls.__name__ + ".json"
         with open(filename, "w") as f:
-            f.write(cls.to_json_string(o))
+            if list_objs is None:
+                f.write("[]")
+            else:
+                l_dct = [o.to_dictionary() for o in list_objs]
+                f.write(Base.to_json_string(l_dct))
+
 
     @staticmethod
     def from_json_string(json_string):
@@ -98,8 +99,8 @@ class Base():
         filename = str(cls.__name__) + ".json"
         try:
             with open(filename, "r") as f:
-                l_dct = Base.from_json_string(f.read())
-            return [cls.create(**d) for d in l_dct]
+                l_dct = cls.from_json_string(f.read())
+            return [cls.create(**a) for a in l_dct]
         except IOError:
             return []
 

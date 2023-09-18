@@ -139,12 +139,14 @@ class Rectangle(Base):
         Prints in stdout the Rectangle instance
         with the character # -.
         """
-        for i in range(self.__height):
-            print(
-                "\n" * self.__y + "\n".join(
-                    " " * self.__x + "#" * self.__width
-                    )
-                )
+        if self.width == 0 or self.height == 0:
+            print("")
+            return
+        [print("") for y in range(self.y)]
+        for h in range(self.height):
+            [print(" ", end="") for x in range(self.x)]
+            [print("#", end="") for w in range(self.width)]
+            print("")
 
     def __str__(self):
         """
