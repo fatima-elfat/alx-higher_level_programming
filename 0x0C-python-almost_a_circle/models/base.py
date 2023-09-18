@@ -56,7 +56,6 @@ class Base():
                 l_dct = [o.to_dictionary() for o in list_objs]
                 f.write(Base.to_json_string(l_dct))
 
-
     @staticmethod
     def from_json_string(json_string):
         """
