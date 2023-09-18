@@ -160,20 +160,19 @@ class Base():
         drawing.screen.bgcolor("#000000")
         drawing.pensize(3)
         drawing.shape("turtle")
-
-        drawing.color("#ffffff")
-        for rect in list_rectangles:
+        drawing.color("#eeeeee")
+        for r in list_rectangles:
             drawing.showturtle()
             drawing.up()
-            drawing.goto(rect.x, rect.y)
+            drawing.goto(r.x, r.y)
             drawing.down()
             for i in range(2):
-                drawing.forward(rect.width)
+                drawing.forward(r.width)
                 drawing.left(90)
-                drawing.forward(rect.height)
+                drawing.forward(r.height)
                 drawing.left(90)
             drawing.hideturtle()
-        drawing.color("#aaaaaa")
+        drawing.color("#ffffff")
         for sq in list_squares:
             drawing.showturtle()
             drawing.up()
