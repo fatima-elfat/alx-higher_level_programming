@@ -1,6 +1,6 @@
 #!/usr/bin/node
 
-function secondBiggest  (arg) {
+function secondBiggest (arg) {
   if (arg.length <= 3) {
     return (0);
   } else {
