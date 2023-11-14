@@ -2,8 +2,8 @@
 
 const dict = require('./101-data').dict;
 
-let dikt = {};
-for (let key in dict) {
+const dikt = {};
+for (const key in dict) {
   const listk = [];
   if (dikt[dict[key]] === undefined) {
     dikt[dict[key]] = [];
