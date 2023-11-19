@@ -18,7 +18,7 @@ if __name__ == "__main__":
                            format(user, passwd, db))
     Session = sessionmaker(bind=engine)
     session = Session()
-    r = session.query(State).filter_by(name=argv[4]).first()
+    r = session.query(State).filter(State.name == (argv[4],)).first()
     if r is None:
         print("Nothing")
     else:
