@@ -15,7 +15,7 @@ if __name__ == "__main__":
         passwd=argv[2])
     cr = db.cursor()
     q = "WHERE name LIKE BINARY"
-    cr.execute("SELECT * FROM states  {} {}".format(q, argv[4]))
+    cr.execute("SELECT * FROM states  {a} {b}".format(a=q, b=argv[4]))
     for row in cr.fetchall():
         print(row)
     cr.close()
