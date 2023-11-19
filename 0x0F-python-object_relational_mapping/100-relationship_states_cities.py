@@ -17,6 +17,7 @@ if __name__ == "__main__":
     passwd = argv[2]
     engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'.
                            format(user, passwd, db))
+    Base.metadata.create_all(engine)
     Session = sessionmaker(bind=engine)
     session = Session()
     s = State(name="California")
