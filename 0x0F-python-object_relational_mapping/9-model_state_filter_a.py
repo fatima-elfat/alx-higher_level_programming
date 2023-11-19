@@ -18,6 +18,5 @@ if __name__ == "__main__":
                            format(user, passwd, db))
     Session = sessionmaker(bind=engine)
     session = Session()
-    for r in session.query(State).filter(
-    State.name.like('%a%')):
+    for r in session.query(State).filter(State.name.like('%a%')):
         print(r.id, r.name, sep=": ")
