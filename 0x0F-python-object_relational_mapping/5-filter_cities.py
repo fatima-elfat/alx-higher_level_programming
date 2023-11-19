@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-the module of task 1.
+the module of task 5.
 """
 
 import MySQLdb
