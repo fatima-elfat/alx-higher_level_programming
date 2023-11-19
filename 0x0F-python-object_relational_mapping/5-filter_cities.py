@@ -21,6 +21,7 @@ if __name__ == "__main__":
      ORDER BY cities.id"""
     cr.execute(q, (argv[4], ))
     r = list(row[0] for row in cr.fetchall())
-    print(r, sep=", ")
+    # printing the list using * and sep operator
+    print(*r, sep=", ")
     cr.close()
     db.close()
