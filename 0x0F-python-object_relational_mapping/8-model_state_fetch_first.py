@@ -23,3 +23,4 @@ if __name__ == "__main__":
         print("Nothing")
     else:
         print(r.id, r.name, sep=": ")
+    session.close()
