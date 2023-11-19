@@ -19,7 +19,8 @@ if __name__ == "__main__":
                            format(user, passwd, db))
     Session = sessionmaker(bind=engine)
     session = Session()
-    r = session.query(State.name, City.id, City.name).filter(State.id == City.state_id)
+    r = session.query(State.name, City.id, City.name).filter(
+        State.id == City.state_id)
     for row in r:
         print("{:s}: ({:d}) {:s}".format(r[0], r[1], r[2]))
     session.close()

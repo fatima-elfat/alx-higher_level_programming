@@ -18,7 +18,8 @@ if __name__ == "__main__":
                            format(user, passwd, db))
     Session = sessionmaker(bind=engine)
     session = Session()
-    r = session.query(State).session.query(State).filter(State.name.like('%a%'))
+    r = session.query(State).session.query(State).filter(
+        State.name.like('%a%'))
     for row in r:
         session.delete(row)
     session.commit()
