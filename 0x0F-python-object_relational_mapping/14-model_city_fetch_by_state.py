@@ -22,5 +22,5 @@ if __name__ == "__main__":
     r = session.query(State.name, City.id, City.name).filter(
         State.id == City.state_id)
     for row in r:
-        print("{:s}: ({:d}) {:s}".format(r[0], r[1], r[2]))
+        print("{:s}: ({:d}) {:s}".format(row[0], row[1], row[2]))
     session.close()
