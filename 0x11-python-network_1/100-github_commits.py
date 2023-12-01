@@ -11,4 +11,6 @@ if __name__ == "__main__":
     URL = "{}/{}/{}/commits".format(a, argv[2], argv[1])
     resp = requests.get(URL)
     commits = resp.json()
-    print(commits)
+    for c in commits[:10]:
+        print(c.get("sha"), end=": ")
+        print(c.get("commit").get("author").get("name"))
