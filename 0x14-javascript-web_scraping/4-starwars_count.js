@@ -4,7 +4,7 @@ const request = require('request');
 request(url, function (error, response, body) {
   if (error) console.log(error);
   else {
-    const movies = JSON.parse(body).results;
+    const movies = JSON.parse(body);
     let count = 0;
     for (const m in movies) {
       const c = movies[m].c;
